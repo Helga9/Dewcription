@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .gallery-item { width: 150px; text-align: center; }
+        .gallery-item img { width: 100%; height: auto; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery" id="gallery"></div>
+    <script>
+        const images = [
+            { name: "Image 1", src: "image1.jpg", link: "details/image1.html" },
+            { name: "Image 2", src: "image2.jpg", link: "details/image2.html" },
+            { name: "Image 3", src: "image3.jpg", link: "details/image3.html" }
+        ];const galleryContainer = document.getElementById("gallery");
+    images.forEach(img => {
+        const div = document.createElement("div");
+        div.className = "gallery-item";
+        div.innerHTML = `<a href="${img.link}"><img src="${img.src}" alt="${img.name}"><br>${img.name}</a>`;
+        galleryContainer.appendChild(div);
+    });
+</script>
+
+</body>
+</html>
